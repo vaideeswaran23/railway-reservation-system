@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/shards.min.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/train">RailwayReservation</a>
+            <a class="navbar-brand" aria-current="page" href="/train">Home</a>
+            <a class="navbar-brand " href="/myaccount" tabindex="-1">My Account</a>
+            <ul class="d-flex">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="/logout" >Log out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row border border-primary mt-2" th:each="ticket: ${tickets}">
+        <div class="d-flex justify-content-end" style="width:100%">
+            <a th:href="@{/cancel/{id}/{uid} (id=${ticket.id}, uid=${ticket.user.id})}" class="mt-5">Cancel Ticket</a>
+        </div>
+        <div class="col-md-12">
+            <h2 class="my-5">Booked Train</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Train number</th>
+                    <th scope="col">Train name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Departure Time</th>
+                    <th scope="col">Arrival Time</th>
+                    <th scope="col">Fare</th>
+                    <th scope="col">Total seats</th>
+                    <th scope="col">Available seats</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${ticket.train.trainNumber}"></td>
+                    <td th:text="${ticket.train.trainName}"></td>
+                    <td th:text="${ticket.train.date}"></td>
+                    <td th:text="${ticket.train.departureTime}"></td>
+                    <td th:text="${ticket.train.arrivalTime}"></td>
+                    <td th:text="${ticket.train.fare}"></td>
+                    <td th:text="${ticket.train.totalSeats}"></td>
+                    <td th:text="${ticket.train.availableSeats}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <h2 class="my-5">Passenger Details</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Berth Preference</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${ticket.passenger.name}"></td>
+                    <td th:text="${ticket.passenger.age}"></td>
+                    <td th:text="${ticket.passenger.gender}"></td>
+                    <td th:text="${ticket.passenger.email}"></td>
+                    <td th:text="${ticket.passenger.mobile}"></td>
+                    <td th:text="${ticket.passenger.berth}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Passenger Info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/shards.min.css">
+</head>
+<body>
+<div class="container">
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/train">RailwayReservation</a>
+      <a class="navbar-brand" aria-current="page" href="/train">Home</a>
+      <a class="navbar-brand " href="/myaccount" tabindex="-1">My Account</a>
+      <ul class="d-flex">
+        <li class="nav-item">
+          <a class="navbar-brand" href="/logout" >Log out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="my-5">Selected Train</h2>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Train number</th>
+          <th scope="col">Train name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Departure Time</th>
+          <th scope="col">Arrival Time</th>
+          <th scope="col">Fare</th>
+          <th scope="col">Total seats</th>
+          <th scope="col">Available seats</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td th:text="${train.trainNumber}"></td>
+          <td th:text="${train.trainName}"></td>
+          <td th:text="${train.date}"></td>
+          <td th:text="${train.departureTime}"></td>
+          <td th:text="${train.arrivalTime}"></td>
+          <td th:text="${train.fare}"></td>
+          <td th:text="${train.totalSeats}"></td>
+          <td th:text="${train.availableSeats}"></td>
+        </tr>
+        </tbody>
+      </table>
+      <h2 class="my-5">Passenger Info</h2>
+      <form action="#" th:action="@{/payment/{id} (id=${train.id})}" th:object="${passenger}" method="post">
+  <div class="form-group col-md-6">
+    <label for="name" class="col-form-label">Name</label>
+    <input type="text" th:field="*{name}" class="form-control" id="name" required>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="age" class="col-form-label">Age</label>
+    <input type="number" th:field="*{age}" class="form-control" id="age" required>
+    <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="text-danger"></span>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="gender" class="col-form-label">Gender</label>
+    <select id="gender" name="gender" th:field="*{gender}" required>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Third">Third</option>
+    </select>
+    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" class="text-danger"></span>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="email" class="col-form-label">Email</label>
+    <input type="email" th:field="*{email}" class="form-control" id="email" required>
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="mobile" class="col-form-label">Mobile</label>
+    <input type="tel" th:field="*{mobile}" class="form-control" id="mobile" required>
+    <span th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}" class="text-danger"></span>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="berth" class="col-form-label">Berth Preference</label>
+    <select id="berth" name="berth" th:field="*{berth}" required>
+      <option value="Upper">Upper</option>
+      <option value="Lower">Lower</option>
+      <option value="Middle">Middle</option>
+    </select>
+    <span th:if="${#fields.hasErrors('berth')}" th:errors="*{berth}" class="text-danger"></span>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mt-5">
+      <input type="submit" class="btn btn-primary" value="Proceed to Payment">
+    </div>
+  </div>
+</form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

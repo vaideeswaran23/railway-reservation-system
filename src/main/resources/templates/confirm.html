@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/shards.min.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/train">RailwayReservation</a>
+            <a class="navbar-brand" aria-current="page" href="/train">Home</a>
+            <a class="navbar-brand " href="/myaccount" tabindex="-1">My Account</a>
+            <ul class="d-flex">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="/logout" >Log out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Your booking has been confirmed</h2>
+            <h5>Please download your booking details <a th:href="@{http://localhost:8080/export/{id} (id=${ticket.id})}">here</a></h5>
+            <h5>We have also sent an confirmation email to the passenger mail id</h5>
+            <h5>You can also see the booking details on <a th:href="@{http://localhost:8080/myaccount}">My Account</a></h5>
+        </div>
+    </div>
+</div>
+</body>
+</html>

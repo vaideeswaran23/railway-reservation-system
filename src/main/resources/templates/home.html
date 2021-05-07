@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/shards.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="my-5">Home</h2>
+            <a href="/logout">Log out</a>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Train number</th>
+                    <th scope="col">Train name</th>
+                    <th scope="col">Departure</th>
+                    <th scope="col">Arrival</th>
+                    <th scope="col">Fare</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>01139</td>
+                    <td>CSMT-GDG SPL</td>
+                    <td>6am</td>
+                    <td>6pm</td>
+                    <td>900</td>
+                    <td><a href="/book/1">Book</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>01140</td>
+                    <td>CDG-CSMT SPL</td>
+                    <td>8am</td>
+                    <td>4pm</td>
+                    <td>600</td>
+                    <td><a href="/book/2">Book</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>02701</td>
+                    <td>CSMT-HYB</td>
+                    <td>10am</td>
+                    <td>2pm</td>
+                    <td>450</td>
+                    <td><a href="/book/3">Book</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>02702</td>
+                    <td>HYB-CSMT</td>
+                    <td>11am</td>
+                    <td>2pm</td>
+                    <td>330</td>
+                    <td><a href="/book/4">Book</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>01301</td>
+                    <td>CSMT-SBC SPL</td>
+                    <td>12pm</td>
+                    <td>6pm</td>
+                    <td>400</td>
+                    <td><a href="/book/5">Book</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>01302</td>
+                    <td>SPC-CSMT SPL</td>
+                    <td>6pm</td>
+                    <td>12pm</td>
+                    <td>450</td>
+                    <td><a href="/book/6">Book</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>01019</td>
+                    <td>CSMT-SBC SPL</td>
+                    <td>3am</td>
+                    <td>11am</td>
+                    <td>550</td>
+                    <td><a href="/book/7">Book</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>01020</td>
+                    <td>BBS-CSMT SPL</td>
+                    <td>6am</td>
+                    <td>1pm</td>
+                    <td>500</td>
+                    <td><a href="/book/8">Book</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
